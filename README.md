@@ -2,7 +2,7 @@
 
 Submitted by: **Lynjai Jimenez**
 
-This web app: **insert description**
+This web app: **This is an interactive web application that allows users to explore and learn about various cat breeds. Users can click a button to discover random cats, view their images, and read details about their breed, including origin, weight, life span, temperament, and a link to more information. The app features a "Recently Seen Cats" section that keeps track of previously viewed cats, and a customizable "Ban List" where users can exclude specific attributes from future searches. This ban list can be easily managed, with the ability to add or remove banned items. The app provides a fun and educational experience for cat enthusiasts, allowing them to discover new breeds while customizing their exploration based on their preferences.**
 
 Time spent: **2** hours spent in total
 
