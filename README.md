@@ -29,6 +29,7 @@ The following **additional** features are implemented:
  - Mobile Responsive
  - Added wikipedia link and temperaments to attributes
  - Added a reset search button
+ - User can remove a banned item from the ban list and previously banned item will return back to search
 
 ## Video Walkthrough
 

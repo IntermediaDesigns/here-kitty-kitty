@@ -83,6 +83,13 @@ export default function CatDiscoveryApp() {
     }
   };
 
+  const handleUnban = (category, value) => {
+    setBanList((prevList) => ({
+      ...prevList,
+      [category]: prevList[category].filter((item) => item !== value),
+    }));
+  };
+
   const resetSearch = () => {
     setSeenCats([]);
     setBanList({});
@@ -164,23 +171,32 @@ export default function CatDiscoveryApp() {
                 Ban List
               </h2>
               <div className="max-h-[30vh] lg:max-h-[calc(50vh-100px)] overflow-y-auto">
-                {Object.entries(banList).map(([category, values]) => (
-                  <div key={category} className="mb-4">
-                    <h3 className="text-lg font-medium text-gray-700 capitalize mb-2">
-                      {category.replace("_", " ")}:
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {values.map((value, index) => (
-                        <span
-                          key={index}
-                          className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm"
-                        >
-                          {value}
-                        </span>
-                      ))}
+                {Object.entries(banList).map(([category, values]) => {
+                  if (values.length === 0) return null; // Don't render anything if there are no banned items
+                  return (
+                    <div key={category} className="mb-4">
+                      <h3 className="text-lg font-medium text-gray-700 capitalize mb-2">
+                        {category.replace("_", " ")}:
+                      </h3>
+                      <div className="flex flex-wrap gap-2">
+                        {values.map((value, index) => (
+                          <span
+                            key={index}
+                            className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm flex items-center"
+                          >
+                            {value}
+                            <button
+                              onClick={() => handleUnban(category, value)}
+                              className="ml-2 text-red-500 hover:text-red-700 focus:outline-none"
+                            >
+                              &times;
+                            </button>
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
